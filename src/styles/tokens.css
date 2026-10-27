@@ -1,0 +1,37 @@
+:root {
+  /* Dark mode default tokens */
+  --cinema-bg: #111018;
+  --cinema-surface: #1B1925;
+  --cinema-elevated: #242232;
+  --cinema-border: rgba(255, 255, 255, 0.08);
+  --cinema-text: #FAF7FF;
+  --cinema-muted: #B6B0C5;
+  --cinema-subtle: rgba(255, 255, 255, 0.04);
+  
+  --brand-violet: #7657FF;
+  --brand-pink: #FF5DA2;
+  --brand-tangerine: #FF9F43;
+  --brand-aqua: #49DCC6;
+  --brand-sunshine: #FFE66D;
+}
+
+html.light {
+  --cinema-bg: #F8F7FC;
+  --cinema-surface: #FFFFFF;
+  --cinema-elevated: #F0EDF9;
+  --cinema-border: rgba(0, 0, 0, 0.08);
+  --cinema-text: #13111E;
+  --cinema-muted: #6C667E;
+  --cinema-subtle: rgba(0, 0, 0, 0.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

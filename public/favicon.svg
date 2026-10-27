@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="cinescope-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7657FF" />
+      <stop offset="50%" stop-color="#FF5DA2" />
+      <stop offset="100%" stop-color="#FF9F43" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="#111018" />
+  <rect x="2" y="2" width="44" height="44" rx="10" stroke="url(#cinescope-grad)" stroke-width="2" />
+  <!-- Film Aperture / Scope Play Icon -->
+  <circle cx="24" cy="24" r="14" stroke="url(#cinescope-grad)" stroke-width="3" stroke-dasharray="6 3" />
+  <polygon points="21,17 33,24 21,31" fill="url(#cinescope-grad)" />
+  <circle cx="14" cy="14" r="2" fill="#49DCC6" />
+  <circle cx="34" cy="34" r="2" fill="#FFE66D" />
+</svg>
