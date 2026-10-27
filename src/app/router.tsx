@@ -1,105 +1,65 @@
-import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { App } from './App';
-import { Clapperboard } from 'lucide-react';
-
-const PageLoader = () => (
-  <div className="flex flex-col items-center justify-center min-h-[60vh] gap-3">
-    <div className="w-12 h-12 rounded-2xl bg-brand-violet/10 border border-brand-violet/30 flex items-center justify-center text-brand-violet animate-pulse shadow-cinema-glow">
-      <Clapperboard className="w-6 h-6 animate-pulse-subtle" />
-    </div>
-    <span className="text-xs font-semibold text-cinema-muted tracking-wider uppercase font-mono">
-      Loading Scene...
-    </span>
-  </div>
-);
-
-const HomePage = lazy(() => import('../pages/HomePage').then(m => ({ default: m.HomePage })));
-const DiscoverPage = lazy(() => import('../pages/DiscoverPage').then(m => ({ default: m.DiscoverPage })));
-const MoviePage = lazy(() => import('../pages/MoviePage').then(m => ({ default: m.MoviePage })));
-const WatchlistPage = lazy(() => import('../pages/WatchlistPage').then(m => ({ default: m.WatchlistPage })));
-const CollectionsPage = lazy(() => import('../pages/CollectionsPage').then(m => ({ default: m.CollectionsPage })));
-const CollectionDetailPage = lazy(() => import('../pages/CollectionDetailPage').then(m => ({ default: m.CollectionDetailPage })));
-const GenrePage = lazy(() => import('../pages/GenrePage').then(m => ({ default: m.GenrePage })));
-const ProfilePage = lazy(() => import('../pages/ProfilePage').then(m => ({ default: m.ProfilePage })));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
+import { ErrorState } from '../components/feedback/ErrorState';
+import { HomePage } from '../pages/HomePage';
+import { DiscoverPage } from '../pages/DiscoverPage';
+import { MoviePage } from '../pages/MoviePage';
+import { WatchlistPage } from '../pages/WatchlistPage';
+import { CollectionsPage } from '../pages/CollectionsPage';
+import { CollectionDetailPage } from '../pages/CollectionDetailPage';
+import { GenrePage } from '../pages/GenrePage';
+import { ProfilePage } from '../pages/ProfilePage';
+import { NotFoundPage } from '../pages/NotFoundPage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorState />,
     children: [
       {
         index: true,
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <HomePage />
-          </Suspense>
-        ),
+        element: <HomePage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'discover',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <DiscoverPage />
-          </Suspense>
-        ),
+        element: <DiscoverPage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'movie/:id',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <MoviePage />
-          </Suspense>
-        ),
+        element: <MoviePage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'watchlist',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <WatchlistPage />
-          </Suspense>
-        ),
+        element: <WatchlistPage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'collections',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <CollectionsPage />
-          </Suspense>
-        ),
+        element: <CollectionsPage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'collections/:slug',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <CollectionDetailPage />
-          </Suspense>
-        ),
+        element: <CollectionDetailPage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'genres/:genre',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <GenrePage />
-          </Suspense>
-        ),
+        element: <GenrePage />,
+        errorElement: <ErrorState />,
       },
       {
         path: 'profile',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <ProfilePage />
-          </Suspense>
-        ),
+        element: <ProfilePage />,
+        errorElement: <ErrorState />,
       },
       {
         path: '*',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <NotFoundPage />
-          </Suspense>
-        ),
+        element: <NotFoundPage />,
       },
     ],
   },
