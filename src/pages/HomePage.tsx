@@ -306,7 +306,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="flex gap-4 overflow-x-auto no-scrollbar pb-3">
-            {recentMovies.map((movie, index) => (
+            {recentMovies.map((movie) => (
               <div key={movie.id} className="w-[160px] sm:w-[190px] flex-shrink-0">
                 <MovieRail
                   title=""

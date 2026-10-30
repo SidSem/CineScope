@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Clapperboard, ArrowRight, Film } from 'lucide-react';
+import { Clapperboard, ArrowRight } from 'lucide-react';
 import { PageContainer } from '../components/layout/PageContainer';
 import { COLLECTIONS } from '../data/collections';
 

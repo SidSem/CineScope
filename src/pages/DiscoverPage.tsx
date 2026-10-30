@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { LayoutGrid, List, SlidersHorizontal, ArrowDownCircle } from 'lucide-react';
 import { PageContainer } from '../components/layout/PageContainer';
@@ -9,7 +9,7 @@ import { FilterDrawer } from '../components/search/FilterDrawer';
 import { ActiveFilterChips } from '../components/search/ActiveFilterChips';
 import { MovieGrid } from '../components/movie/MovieGrid';
 import { TrailerModal } from '../components/movie/TrailerModal';
-import { FilterState, SortOption, StatusFilter, ViewMode } from '../types/movie';
+import { FilterState, SortOption, StatusFilter } from '../types/movie';
 import { movieService } from '../services/movieService';
 import { useAppStore } from '../store/appStore';
 

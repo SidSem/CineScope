@@ -13,7 +13,12 @@ interface MovieHeroProps {
 
 export const MovieHero: React.FC<MovieHeroProps> = ({ movies, onOpenTrailer }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+    return true;
+  });
   const timerRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const { isSaved, toggleWatchlist } = useWatchlist();
@@ -33,19 +38,19 @@ export const MovieHero: React.FC<MovieHeroProps> = ({ movies, onOpenTrailer }) =
 
   // Autoplay management
   useEffect(() => {
-    // Respect prefers-reduced-motion
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) {
-      setIsPlaying(false);
-      return;
-    }
+    const handleReducedMotion = (e: MediaQueryListEvent) => {
+      if (e.matches) setIsPlaying(false);
+    };
+    mediaQuery.addEventListener('change', handleReducedMotion);
 
-    if (isPlaying && featuredList.length > 1) {
+    if (isPlaying && !mediaQuery.matches && featuredList.length > 1) {
       timerRef.current = window.setInterval(() => {
         handleNext();
       }, 7000);
     }
     return () => {
+      mediaQuery.removeEventListener('change', handleReducedMotion);
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [isPlaying, handleNext, featuredList.length]);

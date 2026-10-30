@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Film, Home, Compass, Sparkles } from 'lucide-react';
+import { Film, Home, Compass } from 'lucide-react';
 import { PageContainer } from '../components/layout/PageContainer';
 
 export const NotFoundPage: React.FC = () => {

@@ -21,7 +21,9 @@ export const CollectionDetailPage: React.FC = () => {
   const watched = useAppStore(state => state.watched);
 
   const collection = COLLECTIONS.find(c => c.slug === slug || c.id === slug);
-  const rawMovies = collection ? movieService.getMoviesByCollection(collection.slug) : [];
+  const rawMovies = useMemo(() => (
+    collection ? movieService.getMoviesByCollection(collection.slug) : []
+  ), [collection]);
 
   const sortedMovies = useMemo(() => {
     return filterAndSortMovies(

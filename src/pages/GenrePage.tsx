@@ -25,7 +25,9 @@ export const GenrePage: React.FC = () => {
          g.name.toLowerCase() === genreParam?.toLowerCase()
   );
 
-  const rawMovies = genreParam ? movieService.getMoviesByGenre(genreParam) : [];
+  const rawMovies = useMemo(() => (
+    genreParam ? movieService.getMoviesByGenre(genreParam) : []
+  ), [genreParam]);
 
   const sortedMovies = useMemo(() => {
     return filterAndSortMovies(

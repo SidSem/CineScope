@@ -10,11 +10,8 @@ import {
   Check,
   Play,
   Share2,
-  DollarSign,
   Globe,
-  Film,
-  Sparkles,
-  UserCheck
+  Film
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PageContainer } from '../components/layout/PageContainer';

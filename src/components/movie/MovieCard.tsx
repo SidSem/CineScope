@@ -21,7 +21,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   index = 0
 }) => {
   const navigate = useNavigate();
-  const { isSaved, isWatched, toggleWatchlist, toggleWatched } = useWatchlist();
+  const { isSaved, isWatched, toggleWatchlist } = useWatchlist();
 
   const saved = isSaved(movie.id);
   const watched = isWatched(movie.id);
@@ -34,12 +34,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({
     e.stopPropagation();
     e.preventDefault();
     toggleWatchlist(movie.id, movie.title);
-  };
-
-  const handleWatchedClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    toggleWatched(movie.id, movie.title);
   };
 
   const handleQuickViewClick = (e: React.MouseEvent) => {

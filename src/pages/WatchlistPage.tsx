@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Bookmark, CheckCircle2, Trash2, Search, SlidersHorizontal, Film, ArrowRight } from 'lucide-react';
+import { Bookmark, CheckCircle2, Trash2, Search, Film } from 'lucide-react';
 import { PageContainer } from '../components/layout/PageContainer';
 import { MovieGrid } from '../components/movie/MovieGrid';
 import { ConfirmDialog } from '../components/feedback/ConfirmDialog';

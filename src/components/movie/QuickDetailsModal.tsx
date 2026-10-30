@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Movie } from '../../types/movie';
 import { MoviePoster } from './MoviePoster';
 import { useWatchlist } from '../../hooks/useWatchlist';
-import { formatRuntime, formatDate } from '../../lib/utils';
+import { formatRuntime } from '../../lib/utils';
 
 interface QuickDetailsModalProps {
   movie: Movie | null;

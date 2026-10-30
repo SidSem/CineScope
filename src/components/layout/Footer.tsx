@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Clapperboard, Heart, Film } from 'lucide-react';
+import { Clapperboard, Heart } from 'lucide-react';
 import { GENRES } from '../../data/genres';
 
 export const Footer: React.FC = () => {
