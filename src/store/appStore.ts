@@ -217,16 +217,11 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     clearStoredUserData();
     const resetState = loadStoredUserData();
     set({
-      watchlist: [],
-      watched: [],
-      recentlyViewed: [],
-      recentSearches: [],
-      preferences: {
-        name: 'Cinephile',
-        theme: 'dark',
-        viewMode: 'grid',
-        preferredGenres: []
-      }
+      watchlist: resetState.watchlist,
+      watched: resetState.watched,
+      recentlyViewed: resetState.recentlyViewed,
+      recentSearches: resetState.recentSearches,
+      preferences: resetState.preferences
     });
     if (typeof document !== 'undefined') {
       document.documentElement.classList.add('dark');
